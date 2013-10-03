@@ -1,5 +1,9 @@
 """Production settings and globals."""
 
+# Heroku-specific packages
+
+import dj_database_url
+import memcacheify
 
 from os import environ
 
@@ -20,7 +24,7 @@ def get_env_setting(setting):
 
 ########## HOST CONFIGURATION
 # See: https://docs.djangoproject.com/en/1.5/releases/1.5/#allowed-hosts-required-in-production
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*.herokuapp.com"]
 ########## END HOST CONFIGURATION
 
 ########## EMAIL CONFIGURATION
@@ -50,13 +54,13 @@ SERVER_EMAIL = EMAIL_HOST_USER
 ########## END EMAIL CONFIGURATION
 
 ########## DATABASE CONFIGURATION
-DATABASES = {}
+DATABASES = {"default": dj_database_url.config()}
 ########## END DATABASE CONFIGURATION
 
 
 ########## CACHE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
-CACHES = {}
+CACHES = memcacheify.memcacheify()
 ########## END CACHE CONFIGURATION
 
 

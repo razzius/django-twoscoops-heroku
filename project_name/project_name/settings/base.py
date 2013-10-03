@@ -1,5 +1,6 @@
 """Common settings and globals."""
 
+from os import environ
 
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
@@ -109,7 +110,7 @@ STATICFILES_FINDERS = (
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Note: This key only used for development and testing.
-SECRET_KEY = r"{{ secret_key }}"
+SECRET_KEY = environ['SECRET_KEY']
 ########## END SECRET CONFIGURATION
 
 
