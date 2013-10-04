@@ -1,4 +1,4 @@
-SECRET_KEY=`< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c50`
+SECRET_KEY=`openssl rand -base64 48`
 echo "Generated secret key $SECRET_KEY"
 echo "Adding secret key to virtual environment..."
 echo "SECRET_KEY=$SECRET_KEY" >> $VIRTUAL_ENV/bin/activate
