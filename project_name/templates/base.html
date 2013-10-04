@@ -17,7 +17,7 @@
 
     <!-- Use this to quickly test CSS changes in a template,
         then move to project.css -->
-    {% templatetag openblock %} block css {% templatetag closeblock %}{% templatetag openblock %} endblock {% templatetag closeblock %}
+    {% templatetag openblock %} block css {% templatetag closeblock %}{% templatetag openblock %} endblock css {% templatetag closeblock %}
   </head>
 
   <body>
@@ -34,6 +34,6 @@
     <!-- place project specific Javascript in this file -->
     <script src="{% templatetag openblock %} static 'js/project.js' {% templatetag closeblock %}"></script>
 
-    {% templatetag openblock %} block scripts {% templatetag closeblock %}{% templatetag openblock %} endblock {% templatetag closeblock %}
+    {% templatetag openblock %} block scripts {% templatetag closeblock %}{% templatetag openblock %} endblock scripts {% templatetag closeblock %}
   </body>
 </html>
