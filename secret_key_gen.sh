@@ -4,7 +4,7 @@ if [ ! $VIRTUAL_ENV ]; then
 fi
 echo "Generated secret key {{ secret_key }}"
 echo "Adding secret key to virtual environment..."
-echo "SECRET_KEY={{ secret_key }}" >> $VIRTUAL_ENV/bin/activate
+echo "export SECRET_KEY='{{ secret_key }}'" >> $VIRTUAL_ENV/bin/activate
 echo "Restarting virtual environment..."
 source $VIRTUAL_ENV/bin/activate
 echo "Self-destructing..."
