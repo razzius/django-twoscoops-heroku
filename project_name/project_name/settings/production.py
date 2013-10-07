@@ -24,7 +24,7 @@ def get_env_setting(setting):
 
 ########## HOST CONFIGURATION
 # See: https://docs.djangoproject.com/en/1.5/releases/1.5/#allowed-hosts-required-in-production
-ALLOWED_HOSTS = ["*.herokuapp.com"]
+ALLOWED_HOSTS = [".herokuapp.com"]
 ########## END HOST CONFIGURATION
 
 ########## EMAIL CONFIGURATION
@@ -68,3 +68,5 @@ CACHES = memcacheify.memcacheify()
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 SECRET_KEY = get_env_setting('SECRET_KEY')
 ########## END SECRET CONFIGURATION
+
+STATIC_ROOT = 'staticfiles'
