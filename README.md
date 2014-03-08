@@ -8,22 +8,25 @@ django-admin.py startproject --template=https://github.com/razzius/django-twosco
 
 To set for local development, start a virtual environment:
 
-mkvirtualenv <project name>
+    mkvirtualenv <project name>
 
-cd <project name>
+Set up a secret key:
 
-add2virtualenv .
+    sh secret_key_gen.sh
 
-Finally to set up a secret key:
+Add the project's root to your python path (important):
 
-sh secret_key_gen.sh
+    cd <project name>
+
+    add2virtualenv .
 
 
 General setup instructions can be found at https://github.com/twoscoops/django-twoscoops-project.
 
-In order to optimize this project for my preferences and Heroku, I have made the following changes:
+In order to optimize this project for my preferences and for Heroku, I have made the following changes:
 
 - Upgraded Bootstrap to 3
 - Updated requirements versions and removed some utilities
 - Added an index template that inherits from base, removed some of the starting html
 - Renamed template blocks
+- Implemented production databases, caches, and static using dj-database-url, dj-heroku-memcacheify, and dj-static
