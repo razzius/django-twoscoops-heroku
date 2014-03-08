@@ -8,15 +8,15 @@ django-admin.py startproject --template=https://github.com/razzius/django-twosco
 
 To set for local development, start a virtual environment:
 
-    mkvirtualenv <project name>
+    mkvirtualenv {{ project_name }}
 
 Set up a secret key:
 
-    sh secret_key_gen.sh
+    source secret_key_gen.sh
 
 Add the project's root to your python path (important):
 
-    cd <project name>
+    cd {{ project_name }}
 
     add2virtualenv .
 

@@ -6,7 +6,10 @@ echo "Generated secret key {{ secret_key }}"
 echo "Adding secret key to virtual environment..."
 echo "export SECRET_KEY='{{ secret_key }}'" >> $VIRTUAL_ENV/bin/activate
 echo "Restarting virtual environment..."
-deactivate
-. $VIRTUAL_ENV/bin/activate
+source $VIRTUAL_ENV/bin/activate
 echo "Self-destructing..."
-rm secret_key_gen.sh
+if [ -f secret_key_gen.sh ]; then
+	rm secret_key_gen.sh
+else
+	rm ../secret_key_gen.sh
+fi
