@@ -1,4 +1,5 @@
 """Production settings and globals."""
+from __future__ import absolute_import
 
 # Heroku-specific packages
 
@@ -7,7 +8,7 @@ import memcacheify
 
 from os import environ
 
-from base import *
+from .base import *
 
 # Normally you should not import ANYTHING from Django directly
 # into your settings, but ImproperlyConfigured is an exception.

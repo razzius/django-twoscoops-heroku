@@ -109,7 +109,6 @@ STATICFILES_FINDERS = (
 
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-# Note: This key only used for development and testing.
 SECRET_KEY = environ['SECRET_KEY']
 ########## END SECRET CONFIGURATION
 
@@ -193,17 +192,12 @@ DJANGO_APPS = (
     # 'django.contrib.admindocs',
 )
 
-THIRD_PARTY_APPS = (
-    # Database migration helpers:
-    'south',
-)
-
 # Apps specific for this project go here.
 LOCAL_APPS = (
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
 ########## END APP CONFIGURATION
 
 
@@ -242,5 +236,16 @@ LOGGING = {
 
 ########## WSGI CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
-WSGI_APPLICATION = 'wsgi.application'
+WSGI_APPLICATION = '%s.wsgi.application' % SITE_NAME
 ########## END WSGI CONFIGURATION
+
+
+########## SOUTH CONFIGURATION
+# See: http://south.readthedocs.org/en/latest/installation.html#configuring-your-django-installation
+INSTALLED_APPS += (
+    # Database migration helpers:
+    'south',
+)
+# Don't need to use South when setting up a test database.
+SOUTH_TESTS_MIGRATE = False
+########## END SOUTH CONFIGURATION
